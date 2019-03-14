@@ -2,4 +2,5 @@
 
 export(parse_cmep)
 export(read_cmep)
+export(read_cmep_chunked)
 importFrom(tibble,tibble)
