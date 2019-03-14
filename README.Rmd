@@ -33,3 +33,8 @@ library(cmep)
 f <- system.file("extdata", "cmep.dat", package = "cmep", mustWork = TRUE)
 read_cmep(f)
 ```
+
+## Related Work
+
+There is a CMEP parser (https://github.com/craignicholson/cmepparser) developed
+in Go, which formats the data as JSON.
