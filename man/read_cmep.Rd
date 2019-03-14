@@ -4,15 +4,16 @@
 \alias{read_cmep}
 \title{Read CMEP File}
 \usage{
-read_cmep(file, ...)
+read_cmep(..., parse = TRUE)
 }
 \arguments{
-\item{file}{path to file}
-
 \item{...}{passed to \code{\link[readr]{read_lines}}}
+
+\item{parse}{boolean; should the records be parsed?}
 }
 \description{
-Read and parse CMEP file
+Read and parse CMEP file. Currently, the functions are just simple wrappers
+around the more generic \code{readr} functions.
 }
 \examples{
 f <- system.file("extdata", "cmep.dat", package = "cmep", mustWork = TRUE)

@@ -20,8 +20,8 @@ The `cmep` package can be used to read CMEP formatted files into R.
 
 You can install the development version of `cmep` from GitHub with:
 
-``` r
-remotes::install_github("ajholgui/cmep")
+```{r install, eval=FALSE}
+remotes::install_github("ajholguin/cmep")
 ```
 
 ## Example
