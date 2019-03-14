@@ -5,15 +5,18 @@
 \alias{read_cmep_chunked}
 \title{Read CMEP File}
 \usage{
-read_cmep(..., parse = TRUE)
+read_cmep(..., parse = TRUE, unnest = FALSE)
 
-read_cmep_chunked(..., parse = TRUE)
+read_cmep_chunked(..., parse = TRUE, unnest = FALSE)
 }
 \arguments{
 \item{...}{passed to \code{\link[readr]{read_lines}} or
 \code{\link[readr]{read_lines_chunked}}}
 
 \item{parse}{boolean; should the records be parsed?}
+
+\item{unnest}{boolean; should the data values be unnested? if FALSE (the
+default) then they are returned in a list column with nested tables}
 }
 \description{
 Read and parse CMEP file. These functions are mostly just simple wrappers
