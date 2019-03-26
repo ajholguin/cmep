@@ -46,7 +46,7 @@ parse_MEPMD01 <- function(rec) {
     end_time = as.POSIXct(readings[seq(1, n_readings, by = 3)],
                           tz = "UTC", format = "%Y%m%d%H%M"),             # TODO: handle tz
     quality_flag = readings[seq(2, n_readings, by = 3)],
-    value = readings[seq(3, n_readings, by = 3)]
+    value = as.numeric(readings[seq(3, n_readings, by = 3)])
   )
 
   # parsed record with nested meter readings
