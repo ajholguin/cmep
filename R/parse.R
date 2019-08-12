@@ -42,9 +42,13 @@ parse_MEPMD01 <- function(rec) {
   readings <- rec[-(1:14)]
   n_readings <- length(readings)
 
-  if (n_readings < 3) {
-    warning("MEPMD01 record has missing or incomplete data: ", paste(rec, collapse = ","), call. = FALSE)
+  if (n_readings == 0) {
+    warning("MEPMD01 record has no readings data: ", paste(rec, collapse = ","), call. = FALSE)
     return(NULL)
+  } else if (n_readings %% 3 != 0) {
+    warning("MEPMD01 record has incomplete readings data: ", paste(rec, collapse = ","), call. = FALSE)
+    n_incomplete <- length(readings) %% 3                                 # FIXME: this assumes that the final triple is the incomplete one
+    readings <- readings[1:(length(readings) - n_incomplete)]
   }
 
   reading_tbl <- tibble::tibble(
