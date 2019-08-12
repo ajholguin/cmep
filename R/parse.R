@@ -42,6 +42,11 @@ parse_MEPMD01 <- function(rec) {
   readings <- rec[-(1:14)]
   n_readings <- length(readings)
 
+  if (n_readings < 3) {
+    warning("MEPMD01 record has missing or incomplete data: ", paste(rec, collapse = ","), call. = FALSE)
+    return(NULL)
+  }
+
   reading_tbl <- tibble::tibble(
     end_time = as.POSIXct(readings[seq(1, n_readings, by = 3)],
                           tz = "UTC", format = "%Y%m%d%H%M"),             # TODO: handle tz (although CMEP is UTC/GMT by default)
